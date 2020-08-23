@@ -1,0 +1,12 @@
+{
+  "name": "exampleSPA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverSPA.js",
+  "scripts": {
+    "start": "node serverSPA.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

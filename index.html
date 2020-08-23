@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>React App</title>
+
+    <style>
+      :root
+      {
+          --pDark     :   rgba(60,60,60,1);
+          --pBlack    :   rgba(40,40,40,1);
+
+          --bcBody    :   blue;   --bpBody    :   0px;
+          --bcHeader  :   gray;   --bpHeader  :   0px;
+          --bcAside   :   gray;   --bpAside   :   0px;
+          --bcMain    :   gray;   --bpMain    :   0px;
+          --bcFooter  :   gray;   --bpFooter  :   0px;
+          --bcMenu    :   blue;   --bpMenu    :   0px;
+          --bcSubMenu :   pink;   --bpSubMenu :   0px;
+          --bcBoxes   :   yellow; --bpBoxes   :   0px;
+          --bcPersp   :   green;  --bpPersp   :   0px;
+        }
+
+        body
+        {
+          border: 0px solid red;
+        }
+        body, body *
+        {
+          margin: 0;
+          padding: 0;
+        }
+        /* #app
+        {
+          border: 1px solid blue;
+        } */
+
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Navbar   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        .navBar
+        {
+          background-color: var(--pDark);
+        }
+        .navBar ul
+        {
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          justify-content: flex-start;
+        }
+        .navBar li
+        {
+          border: 1px solid transparent;
+          list-style-type: none;
+          transition-property: background-color, border-color;
+          transition-duration: 0.4s, 0.4s;
+        }
+        .navBar a
+        {
+          /* border: 1px solid yellow; */
+          text-decoration: none;                 /* убираем подчеркивание ссылок */
+          display: flex;
+          justify-content: center;
+
+          width: 200px;
+        }
+        .navBar a
+        {
+          color: white;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Aside    -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        #container
+        {
+          /* border: 1px solid red; */
+          display: flex;
+          position: relative;
+        }
+        aside *
+        {
+          color: #aaa;
+          margin: 0;
+          padding: 0;
+        }
+        aside
+        {
+          /* border: 0px solid blue; */
+          background-color: #555;
+
+          position: sticky;
+          top: 0px;
+          height: 700px;
+          flex-grow: 0;
+
+          transition-property: margin-left;
+          transition-duration: 0.4s;
+        }
+        .Aside_vissible
+        {
+          margin-left: 0px;
+        }
+        .Aside_hidden
+        {
+          margin-left: -200px;
+        }
+        aside > div
+        {
+          border: 1px solid yellow;
+          overflow: auto;
+          width: 200px;
+          height: 700px;
+        }
+        
+        aside li
+        {
+          margin-left: 30px;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------    Main    -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        main *
+        {
+          color: #aaa;
+        }
+        main
+        {
+          /* border: 1px solid blue; */
+          background-color: var(--pBlack);
+          
+          flex-grow: 1;
+          height: 1500px;
+
+          display: flex;
+        }
+        main > .toogle
+        {
+          border: 5px solid red;
+          
+          position: sticky;
+          top: 0px;
+          width: 50px;
+          height: 50px;
+
+          flex-grow: 0;
+        }
+        main > .content
+        {
+          border: 1px solid red;
+          
+          top: 0px;
+          width: 50px;
+          height: 50px;
+
+          flex-grow: 1;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Footer   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        footer
+        {
+          background-color: pink;
+
+          height: 100px;
+        }
+        /*=========================================================================================================*/
+        /*- - - - - - - - - - - - - - - - - - - - - - -   H o v e r   - - - - - - - - - - - - - - - - - - - - - - -*/
+        /*=========================================================================================================*/
+        .navBar li:hover
+        {
+          background-color: #333;
+          border-color: #eee;
+        }
+        
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id='app'>
+    
+      <p>React will clear all content here by injecting self componetns :(</p>
+    
+    </div> 
+
+    <!-- во время webpack-dev-server bundle.js лежит в contentBase: __dirname + "/source"!!! -->
+    <!-- т.е. указание / значит что поиск ресурсов начинается в папке /source/ -->
+    <!-- <script src="/bundle.js"></script> -->
+    <script src="/resources/scripts/bundle.js"></script>
+  </body>
+</html>
