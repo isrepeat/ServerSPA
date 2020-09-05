@@ -1,17 +1,24 @@
-const http = require('http');       //import http from 'http'
-const fs = require('fs').promises;  //import {promises as fs} from 'fs'
+const UsersData = 
+[
+    {player: 'User_1', password: '11111', description: '...', count: 0},
+    {player: 'User_2', password: '22222', description: '...', count: 7},
+]
 
-const port = process.env.PORT || 3000;
+const http = require('http');           // для создания сервера
+const fs   = require('fs').promises;    // для работы с файлами на хосте
+const URL  = require('url');            // для парсинга url-запроса
+
 
 const server = http.createServer((req, res) => 
 {
-    const pathes = req.url.split('/').slice(1,-1);
-    const file   = req.url.split('/').slice(-1);
-    const url    = req.url;
-
+    const URLparsed = URL.parse(req.url, true); // true -> обработать все параметры и записать их в объект query
+    const url       = URLparsed.pathname;
+    const query     = URLparsed.query;
+    const pathes    = url.split('/').slice(1), file = pathes.slice(-1);
     
     console.log(pathes);
-    console.log(req.url+' => file = '+file+';  url = '+url);
+    console.log('url = '+req.url+'  =>  path = '+pathes.join(' ')+'  =>  file = '+file);
+    console.log(query);
     
     
     if(pathes[0] === 'resources')
@@ -35,6 +42,104 @@ const server = http.createServer((req, res) =>
                 })   
         }
     }
+    else if(pathes[0] === 'signup')
+    {
+        if(req.method === 'POST')
+        {
+            let body = '';
+            req.on('data', part => body += part)
+            req.on('end' , () =>
+            {
+                let   USER = JSON.parse(body)
+                let  USERS = {};
+
+                let writed = true;  for(let user of UsersData) if(user.player == USER.player) writed = false;
+                if (writed)  UsersData.push(USER);
+
+                console.log(USER);
+                const i = UsersData.indexOf(USER);
+                USERS   = UsersData.map( user => {let{password, ...data}=user;  return data} )
+                USER    = {index:i, ...USERS[i]};
+
+                let outputDATA = [];
+                outputDATA.push(writed);
+                if(writed)
+                outputDATA.push(USER),
+                outputDATA.push(USERS);
+
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(200);
+                res.end(JSON.stringify(outputDATA));
+            })
+        }
+    }
+    else if(pathes[0] === 'login')
+    {
+        if(req.method === 'POST')
+        {
+            let body = '';
+            req.on('data', part => body += part)
+            req.on('end' , () =>
+            {
+                let USER      = JSON.parse(body);
+                let USERS     = {};
+                let logged    = false;  
+                
+                UsersData.forEach( (user,i) => 
+                {
+                    if(user.player==USER.player && user.password==USER.password) 
+                    {
+                        logged = true;
+                        USERS  = UsersData.map( user => {let{password, ...data}=user;  return data} )
+                        USER   = {index:i, ...USERS[i]};
+                    }
+                })
+
+                let outputDATA = [];
+                outputDATA.push(logged);
+                if(logged)
+                outputDATA.push(USER),
+                outputDATA.push(USERS);
+                        
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(200);
+                res.end(JSON.stringify(outputDATA));
+            })
+        }
+    }
+    else if(pathes[0] === 'save')
+    {
+        if(req.method === 'POST')
+        {
+            let body = '';
+            req.on('data', part => body += part)
+            req.on('end' , () =>
+            {
+                let USER      = JSON.parse(body);
+                let USERS     = {};
+                let saved     = false;  
+
+                UsersData.forEach( (user,i) => 
+                {
+                    if(i == USER.index) 
+                    {
+                        UsersData[i].count = USER.count;
+                        saved  = true;
+                        USERS  = UsersData.map( user => {let{password, ...data}=user;  return data} )
+                    }
+                })
+
+                let outputDATA = [];
+                outputDATA.push(saved);
+                if(saved)
+                outputDATA.push(USERS);
+                        
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(200);
+                res.end(JSON.stringify(outputDATA));
+            })
+        }
+    }
     else
     {
         fs.readFile(__dirname + "/index.html")
@@ -46,7 +151,5 @@ const server = http.createServer((req, res) =>
     }   
 });
 
-
-// adress my notebook in local wi-fi:
-//server.listen(80, '192.168.1.105', () => console.log("server is running ...")); 
-server.listen(port); 
+// server.listen(80, 'localhost', () => console.log("server is running ...")); 
+server.listen(process.env.PORT || 3000); 
