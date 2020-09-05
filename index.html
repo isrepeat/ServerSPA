@@ -23,29 +23,326 @@
 
         body
         {
-          border: 1px solid red;
+          border: 0px solid red;
         }
         body, body *
         {
           margin: 0;
           padding: 0;
+        }
+        /* #app
+        {
+          border: 1px solid blue;
+        } */
+
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Navbar   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        .navBar
+        {
+          /* border: 1px solid green; */
+          background-color: var(--pDark);
           font-family: Arial;
-        }
-
-        body > div
-        {
-          border: 1px solid green;
-
-          width: 800px;
+          font-size: 30px;
+          
+          height: 45px;
           display: flex;
-          justify-content: space-between;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          justify-content: flex-start;
         }
-        body > div > div
+        .navBar a
         {
-          border: 1px solid red;
-          width:  50px;
-          height: 50px;
+          /* border: 1px solid yellow; */
+          border: 1px solid transparent;
+          text-decoration: none;                 /* убираем подчеркивание ссылок */
+          color: white;
+          
+          width: 200px;
+
+          transition-property: background-color, border-color;
+          transition-duration: 0.4s, 0.4s;
+
+          display: flex; 
+          justify-content: center;
+          align-items: center;
         }
+        /* .navBar a div                   {border: 1px solid red;} */
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Aside    -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        #container
+        {
+          /* border: 1px solid red; */
+          display: flex;
+          position: relative;
+        }
+        aside *
+        {
+          color: #eee;
+          margin: 0;
+          padding: 0;
+        }
+        aside
+        {
+          /* border: 0px solid blue; */
+          background-color: #444;
+          font-family: Arial;
+
+          position: sticky;
+          top: 0px;
+          /* height: 700px; */
+          /* height: 100%; */
+          flex-grow: 0;
+
+          transition-property: margin-left;
+          transition-duration: 0.4s;
+        }
+        .Aside_vissible
+        {
+          margin-left: 0px;
+        }
+        .Aside_hidden
+        {
+          margin-left: -200px;
+        }
+        aside > div
+        {
+          /* border: 1px solid yellow; */
+          overflow: auto;
+          width: 200px;
+          padding-top: 10px;
+        }
+        aside > div p
+        {
+          font-size: 30px;
+          font-weight: bold;
+          padding-left: 30px;
+          /* text-align: center; */
+        }
+        aside > div li
+        {
+          /* border: 1px solid red; */
+          cursor: default;
+          list-style: none;
+          color:#aaa;
+
+          height: 40px;
+          padding-left: 30px;
+          
+          display: flex;
+          align-items: center;
+
+          transition-property: background-color;
+          transition-duration: 0.2s;
+        }
+        aside > div div                               /* дополнительная информация */
+        {
+          color:#aaa;
+          font-weight: bold;
+          padding-left: 30px;
+          /* text-align: center; */
+        }
+        aside .Option_1   {font-size: 28px; font-weight: bold;}
+        aside .Option_2   {font-size: 22px; font-weight: bold;}
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------    Main    -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        main *
+        {
+          color: #aaa;
+        }
+        main
+        {
+          /* border: 1px solid blue; */
+          background-color: var(--pBlack);
+          
+          flex-grow: 1;
+          min-height: 100vh;
+
+          display: flex;
+        }
+        main > .toogle
+        {
+          /* border: 1px solid red; */
+          position: sticky;
+          top: 0px;
+          width: 50px;
+          height: 50px;
+          padding: 5px;
+
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-content: space-between;
+        }
+        main > .toogle > div
+        {
+          background-color: #bbb;
+          height: 20%;
+          width: 100%;
+        }
+        main > .content
+        {
+          /* border: 1px solid red; */
+          
+          width: 100%;
+
+          display: flex;
+          justify-content: center;
+        }
+        main > .content > section
+        {
+          /* border: 1px solid green; */
+          font-family: Arial;
+          width: 600px;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Page 1   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*==============================================   Field    ===============================================*/
+        main > .content > section > .Field
+        {
+          /* border: 1px solid blue; */
+          
+          margin: auto;
+          /* width: 450px;
+          height: 450px; */
+
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: space-between;
+        }
+        main > .content > section > .Field > div
+        {
+          border: 4px solid #666;
+          
+          width: 140px;
+          height: 140px;
+        }
+        .writeX, .writeO
+        {
+          background-color: #fff;
+          font-size: 150px;
+
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+        }
+        .writeX::before
+        {
+          content: 'X';
+          color:#000;
+          /* border: 1px solid red; */
+        }
+        .writeO::before
+        {
+          content: 'O';
+          color:#000
+          /* border: 1px solid blue; */
+        }
+        .winner
+        {
+          background-color:yellow;
+
+          transition-property: background-color;
+          transition-duration: 1s;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Page 2   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*==============================================    Form    ===============================================*/
+        main > .content > section > .Form
+        {
+          /* border: 1px solid red; */
+          margin: auto;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+        main > .content > section > .Form.SignUP              {width: 350px;}
+        main > .content > section > .Form.LogIN               {width: 350px;}
+
+        main > .content > section > .Form *                   {font-size: 20px;}
+        main > .content > section > .Form div                 {font-size: 20px; font-weight: bold; align-self: center;}
+        main > .content > section > .Form input[type=text]    {color: black; margin-top: 10px;}
+        main > .content > section > .Form button              {color: black; width: 100px; margin-top: 10px}
+
+        /*==============================================    Table   ===============================================*/
+        table
+        {
+          /* border: 1px solid red; */
+          border-collapse: separate;
+          font-size: 20px;
+          margin: auto;
+          width: 500px;
+          text-align: center;
+          border-spacing: 0px 10px;
+        }
+        th
+        {
+          /* border: 1px solid blue; */
+          color: #ddd;
+        }
+        tr.Player
+        {
+          background-color: #444;
+        }
+        td
+        {
+          /* border: 1px solid red; */
+          color: #ddd;
+        }
+        
+        th:nth-child(1)                   {width: 25%;}
+        th:nth-child(2)                   {width: 50%;}
+        th:nth-child(3)                   {width: 25%;}
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Page 3   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        main > .content > section > .Gallery
+        {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-content: flex-start;
+        }
+        main > .content > section > .Gallery > img
+        {
+          border: 2px solid #666;
+          margin-top: 10px;
+        }
+        /*---------------------------------------------------------------------------------------------------------*/
+        /*----------------------------------------------   Footer   -----------------------------------------------*/
+        /*---------------------------------------------------------------------------------------------------------*/
+        footer
+        {
+          background-color: #333;
+          color: #bbb;
+          font-family: Arial;
+          font-weight: bold;
+          font-size: 25px;
+          height: 40px;
+
+          padding: 10px;
+        }
+        /*=========================================================================================================*/
+        /*- - - - - - - - - - - - - - - - - - - - - - -   H o v e r   - - - - - - - - - - - - - - - - - - - - - - -*/
+        /*=========================================================================================================*/
+        .navBar a:hover
+        {
+          background-color: #333;
+          border-color: #eee;
+        }
+        aside li:hover
+        {
+          background-color: #333;
+        }
+        
 
     </style>
 
@@ -54,11 +351,13 @@
   <body>
     <div id='app'>
     
-      <div>Family</div>
-      <div>Arial</div>
-      <div>Boys</div>
+      <p>React will clear all content here by injecting self componetns :(</p>
     
     </div> 
 
+    <!-- во время webpack-dev-server bundle.js лежит в contentBase: __dirname + "/source"!!! -->
+    <!-- т.е. указание / значит что поиск ресурсов начинается в папке /source/ -->
+    <script src="/resources/scripts/bundle.js"></script>
+    <!-- <script src="/resources/scripts/bundle.js"></script> -->
   </body>
 </html>
