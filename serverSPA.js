@@ -151,5 +151,6 @@ const server = http.createServer((req, res) =>
     }   
 });
 
-// server.listen(80, 'localhost', () => console.log("server is running ...")); 
-server.listen(process.env.PORT || 3000); 
+// server.listen(80, 'localhost', () => console.log("server is running ..."));
+const port = process.env.PORT || 3000;
+server.listen(port); 
