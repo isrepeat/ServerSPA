@@ -23,156 +23,29 @@
 
         body
         {
-          border: 0px solid red;
+          border: 1px solid red;
         }
         body, body *
         {
           margin: 0;
           padding: 0;
+          font-family: Arial;
         }
-        /* #app
-        {
-          border: 1px solid blue;
-        } */
 
-        /*---------------------------------------------------------------------------------------------------------*/
-        /*----------------------------------------------   Navbar   -----------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------*/
-        .navBar
+        body > div
         {
-          background-color: var(--pDark);
-        }
-        .navBar ul
-        {
+          border: 1px solid green;
+
+          width: 800px;
           display: flex;
-          flex-wrap: nowrap;
-          flex-direction: row;
-          justify-content: flex-start;
+          justify-content: space-between;
         }
-        .navBar li
-        {
-          border: 1px solid transparent;
-          list-style-type: none;
-          transition-property: background-color, border-color;
-          transition-duration: 0.4s, 0.4s;
-        }
-        .navBar a
-        {
-          /* border: 1px solid yellow; */
-          text-decoration: none;                 /* убираем подчеркивание ссылок */
-          display: flex;
-          justify-content: center;
-
-          width: 200px;
-        }
-        .navBar a
-        {
-          color: white;
-        }
-        /*---------------------------------------------------------------------------------------------------------*/
-        /*----------------------------------------------   Aside    -----------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------*/
-        #container
-        {
-          /* border: 1px solid red; */
-          display: flex;
-          position: relative;
-        }
-        aside *
-        {
-          color: #aaa;
-          margin: 0;
-          padding: 0;
-        }
-        aside
-        {
-          /* border: 0px solid blue; */
-          background-color: #555;
-
-          position: sticky;
-          top: 0px;
-          height: 700px;
-          flex-grow: 0;
-
-          transition-property: margin-left;
-          transition-duration: 0.4s;
-        }
-        .Aside_vissible
-        {
-          margin-left: 0px;
-        }
-        .Aside_hidden
-        {
-          margin-left: -200px;
-        }
-        aside > div
-        {
-          border: 1px solid yellow;
-          overflow: auto;
-          width: 200px;
-          height: 700px;
-        }
-        
-        aside li
-        {
-          margin-left: 30px;
-        }
-        /*---------------------------------------------------------------------------------------------------------*/
-        /*----------------------------------------------    Main    -----------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------*/
-        main *
-        {
-          color: #aaa;
-        }
-        main
-        {
-          /* border: 1px solid blue; */
-          background-color: var(--pBlack);
-          
-          flex-grow: 1;
-          height: 1500px;
-
-          display: flex;
-        }
-        main > .toogle
-        {
-          border: 5px solid red;
-          
-          position: sticky;
-          top: 0px;
-          width: 50px;
-          height: 50px;
-
-          flex-grow: 0;
-        }
-        main > .content
+        body > div > div
         {
           border: 1px solid red;
-          
-          top: 0px;
-          width: 50px;
+          width:  50px;
           height: 50px;
-
-          flex-grow: 1;
         }
-        /*---------------------------------------------------------------------------------------------------------*/
-        /*----------------------------------------------   Footer   -----------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------*/
-        footer
-        {
-          background-color: pink;
-
-          height: 100px;
-        }
-        /*=========================================================================================================*/
-        /*- - - - - - - - - - - - - - - - - - - - - - -   H o v e r   - - - - - - - - - - - - - - - - - - - - - - -*/
-        /*=========================================================================================================*/
-        .navBar li:hover
-        {
-          background-color: #333;
-          border-color: #eee;
-        }
-        
 
     </style>
 
@@ -181,13 +54,11 @@
   <body>
     <div id='app'>
     
-      <p>React will clear all content here by injecting self componetns :(</p>
+      <div>Family</div>
+      <div>Arial</div>
+      <div>Boys</div>
     
     </div> 
 
-    <!-- во время webpack-dev-server bundle.js лежит в contentBase: __dirname + "/source"!!! -->
-    <!-- т.е. указание / значит что поиск ресурсов начинается в папке /source/ -->
-    <!-- <script src="/bundle.js"></script> -->
-    <script src="/resources/scripts/bundle.js"></script>
   </body>
 </html>
