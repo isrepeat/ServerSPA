@@ -23,18 +23,38 @@
 
         body
         {
-          border: 0px solid red;
+          /* border: 1px solid red; */
+          margin: 0;
+          padding: 0;
+          overflow: auto;
         }
-        body, body *
+        body *
         {
           margin: 0;
           padding: 0;
         }
+        body::-webkit-scrollbar
+        {
+          width: 8px;
+          background-color: #444;
+          
+          
+        }
+        body::-webkit-scrollbar-thumb 
+        {
+          border-radius: 2px;
+          background-color: #222;
+        }
+
+        /* body::-webkit-scrollbar:hover
+        {
+          background-color: red;
+          width: 100px;
+        } */
         /* #app
         {
           border: 1px solid blue;
         } */
-
         /*---------------------------------------------------------------------------------------------------------*/
         /*----------------------------------------------   Navbar   -----------------------------------------------*/
         /*---------------------------------------------------------------------------------------------------------*/
@@ -75,7 +95,7 @@
         {
           /* border: 1px solid red; */
           display: flex;
-          position: relative;
+          position: relative; 
         }
         aside *
         {
@@ -89,10 +109,6 @@
           background-color: #444;
           font-family: Arial;
 
-          position: sticky;
-          top: 0px;
-          /* height: 700px; */
-          /* height: 100%; */
           flex-grow: 0;
 
           transition-property: margin-left;
@@ -110,6 +126,10 @@
         {
           /* border: 1px solid yellow; */
           overflow: auto;
+
+          position: sticky;
+          top: 0px;
+
           width: 200px;
           padding-top: 10px;
         }
