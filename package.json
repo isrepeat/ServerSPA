@@ -2,9 +2,9 @@
   "name": "exampleSPA",
   "version": "1.0.0",
   "description": "",
-  "main": "serverSPA.js",
+  "main": "my_server.js",
   "scripts": {
-    "start": "node serverSPA.js"
+    "start": "node my_server.js"
   },
   "keywords": [],
   "author": "",

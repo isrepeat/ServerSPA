@@ -1,0 +1,12 @@
+[
+  {
+    "player": "User_1",
+    "description": "...",
+    "count": 0
+  },
+  {
+    "player": "User_2",
+    "description": "...",
+    "count": 4
+  }
+]
